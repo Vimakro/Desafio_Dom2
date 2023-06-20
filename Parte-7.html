@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .auto {
+            width: 50px;
+            height: 50px;
+            border: 2px solid black;
+            position: fixed;
+        }
+        .auto-rojo {
+            margin-top: 25px;
+        }
+        .auto-azul {
+            margin-top: 150px;
+        }
+
+        #pista {
+            margin: 0;
+            padding: 0;
+            width: 100vh;
+            height: 100vh;
+            background-image: url("https://img.freepik.com/vector-premium/pista-carreras-linea-salida-llegada-coche-carreras-carretas-carretera-asfaltada-plantilla-speedway-rapido-concepto-deporte-auto-moto-vista-superior_168129-872.jpg");
+            background-repeat: no-repeat;
+            background-size: 100% 30%;
+        }
+    </style>
+    <title>Parte 7</title>
+</head>
+<body>
+    <div id="pista">
+        <img id="autoRojo" class="auto auto-rojo" src="https://i.imgur.com/whSZqry.png" alt="rojo">
+        <img id="autoAzul" class="auto auto-azul" src="https://i.imgur.com/PtQeWUM.png" alt="azul">
+    </div>
+    <script>
+        let doc = document;
+
+        const AutoRojo = doc.querySelector("#autoRojo");
+        const autoAzul = doc.querySelector("#autoAzul");
+        const tamañoAzul = parseInt(getComputedStyle(autoAzul).width);
+        const tamañoRojo = parseInt(getComputedStyle(AutoRojo).width);
+        const tamañoPista = parseInt(getComputedStyle(doc.getElementById("pista")).width);
+        let accRojo = 0;
+        let accAzul = 0;
+        let keypress;
+        window.addEventListener("keyup", event => {event.preventDefault();if (event.key === "Enter"){keypress = false;}});
+        window.addEventListener("keydown", event => {event.preventDefault();if (event.key === "Enter"){keypress = true;}});
+
+        function movimiento(){
+            if (keypress) {
+                accRojo++;
+                AutoRojo.style.marginLeft = accRojo + "px";
+            }
+            accAzul+=0.7;
+            autoAzul.style.marginLeft = accAzul + "px";
+            let winner = accAzul + tamañoAzul > tamañoPista ? "Ganador Azul" : accRojo + tamañoRojo > tamañoPista ? "Ganador Rojo" : "Ninguno"
+            winner === "Ninguno" ? requestAnimationFrame(movimiento) : alert(winner);
+            
+        }
+
+        function comienzo(){
+            alert("Para moverse mantener 'Enter'.");
+            movimiento();
+        }
+
+        comienzo();
+    </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .resaltado {
+            background-color: yellow;
+            color: red;
+        }
+    </style>
+    <title>Parte 2</title>
+</head>
+<body>
+    <div>
+        <p class="parrafo">soy el primer parrafo</p>
+        <p class="parrafo">soy el segundo parrafo</p>
+        <p class="parrafo">soy el tercer parrafo</p>
+        <p class="parrafo">soy el cuarto parrafo</p>
+        <p class="parrafo">soy el quinto parrafo</p>
+    </div>
+
+    <script>
+        let doc = document;
+
+        const parrafos = doc.querySelectorAll(".parrafo");
+
+        parrafos.forEach(parrafo => {
+        parrafo.addEventListener("click", resaltarParrafo);
+        });
+
+        function resaltarParrafo(callback) {
+            callback.preventDefault();
+            this.classList.toggle("resaltado");
+        }
+    </script>
+</body>
+</html>

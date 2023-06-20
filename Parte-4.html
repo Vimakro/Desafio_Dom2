@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .imagen {
+            height: 150px;
+            width: 150px;
+        }
+        .oculto {
+            display: none;
+        }
+    </style>
+    <title>Parte 4</title>
+</head>
+<body>
+    
+    <div>
+        <button id="btnMoney">Show Me The Money </button>
+        <img id="imgMoney" class="imagen oculto" src="https://cached.imagescaler.hbpl.co.uk/resize/scaleWidth/815/cached.offlinehbpl.hbpl.co.uk/news/OMC/money-20160527040117671.jpg" alt="Show Me The Money">
+        <button id="btnMiami">Show Me Miami </button>
+        <img id="imgMiami" class="imagen oculto" src="https://cdn-3.expansion.mx/dims4/default/e385d7d/2147483647/strip/true/crop/1500x1500+0+0/resize/800x800!/quality/90/?url=https%3A%2F%2Fcherry-brightspot.s3.amazonaws.com%2Ff2%2F88%2F6e962314494299111778b5ea5729%2Fbote.jpg" alt="Show Me Miami">
+        <button id="btnMaiame">Show Me Maiameee </button>
+        <img id="imgMaiame" class="imagen oculto" src="https://media.tenor.com/images/504a2d973c586b7814c568d73aad33bf/tenor.png" alt="Show Me Maiameee">
+    </div>
+
+
+    <script>
+        const doc = document;
+
+        const images = doc.querySelectorAll(".imagen")
+        images.forEach(image => {image.addEventListener("click", ocultarImg);})
+
+        function ocultarImg(event) {
+            event.preventDefault();
+            this.classList.toggle("oculto");
+        }
+
+        doc.getElementById("btnMoney").addEventListener("click", even => {
+            even.preventDefault();
+            const imgMoney = doc.getElementById("imgMoney");
+            imgMoney.classList.toggle("oculto");
+        });
+
+        doc.getElementById("btnMiami").addEventListener("click", even => {
+            even.preventDefault();
+            const imgMiami = doc.getElementById("imgMiami");
+            imgMiami.classList.toggle("oculto");
+        });
+
+        doc.getElementById("btnMaiame").addEventListener("click", even => {
+            even.preventDefault();
+            const imgMaiame = doc.getElementById("imgMaiame");
+            imgMaiame.classList.toggle("oculto");
+        });
+    </script>
+</body>
+</html>

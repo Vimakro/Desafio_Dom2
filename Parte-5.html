@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .conteiner {
+            background-image: url("https://i.imgur.com/jnCXdAx.jpg");
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            cursor: none;
+        }
+
+        .imgDom2 {
+            position: fixed;
+            transition: top 2s, left 2s;
+        }
+    </style>
+    <title>Parte 5</title>
+</head>
+<body class="conteiner">
+    <img id="img" class="imgDom2" src="https://i.imgur.com/feRvFIh.gif" alt="ratatuil">
+    <script>
+        
+        let doc = document;
+
+        let body = doc.getElementsByTagName("body")[0];
+        let mouseClick = false;
+        const img = doc.getElementById("img");
+
+        body.addEventListener("mousemove", moverImg);
+        body.addEventListener("mousedown", event => {mouseClick = true;});
+        body.addEventListener("mouseup", event => {mouseClick = false;})
+
+        function moverImg(callback) {
+            callback.preventDefault();
+            if (mouseClick === true) {
+                img.style.top = callback.clientY + "px";
+                img.style.left = callback.clientX + "px";
+            }
+        }
+    </script>
+</body>
+</html>

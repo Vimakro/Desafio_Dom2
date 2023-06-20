@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .visualizarImagen {
+            display: none;
+        }
+
+    </style>
+    <title>Parte 3</title>
+</head>
+<body>
+    <div id="magic" style="height: 10px;"></div>
+    <div>
+        <img id="img" src="https://images.squarespace-cdn.com/content/v1/54fc8146e4b02a22841f4df7/1576109959614-JQLPDAFVBOOMM1MRIPOD/Cover3.jpg?format=1000w" alt="overlord">
+    </div>
+
+
+    <script>
+
+        const doc = document;
+
+        const div = doc.getElementById("magic");
+        const img = doc.getElementById("img");
+
+        // Opcion 1
+        //div.addEventListener("mouseover", ocultarImg);
+        //div.addEventListener("mouseout", mostrarImg);
+        //function ocultarImg(event) {event.preventDefault();img.style.display = "none";}
+        //function mostrarImg(event) {event.preventDefault();img.style.display = "block";}
+
+        // Opcion 2
+        div.addEventListener("mouseover", verImg)
+
+        function verImg(event) {
+            event.preventDefault();
+            img.classList.toggle("visualizarImagen")
+        }
+    </script>
+</body>
+</html>

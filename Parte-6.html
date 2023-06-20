@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parte 6</title>
+</head>
+<body>
+    <input id="texto" type="text">
+    <script>
+        
+        let doc = document;
+
+        const body = doc.getElementsByTagName("body")[0];
+        const input = doc.getElementById("texto");
+
+        input.addEventListener("keydown", event => {
+            if (event.key === "Enter") {
+                const color = event.target.value
+                body.style.backgroundColor = color === "rojo" ? "red" : color === "amarillo" ? "yellow" : color === "azul" ? "blue" : color;
+                event.target.value = "";
+            }
+
+        });
+        body.addEventListener("keydown", event => {if (event.key === "Backspace") {body.style.backgroundColor = "white";}});
+       
+    </script>
+</body>
+</html>

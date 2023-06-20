@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .color {
+            background-color: red;
+        }
+
+        .color1 {
+            background-color: blue;
+        }
+    </style>
+    <title>Parte 1</title>
+</head>
+<body>
+    <div id="conteiner" class="color">
+        <button id="btn">
+            Boton
+        </button>
+    </div>
+    
+    <script>
+        let doc = document;
+        const div = doc.getElementById("conteiner");
+        const btn = doc.getElementById("btn");
+
+        btn.addEventListener("click", seEjecutaEnEvento);
+
+        function seEjecutaEnEvento(callback) {
+            callback.preventDefault();
+            div.insertAdjacentHTML("beforeend", "<p>soy un nuevo parrafo</p>");
+            div.classList.toggle("color") ? div.classList.replace("color1", "color") : div.classList.add("color1");
+            console.log("beep");
+        }
+    </script>
+</body>
+</html>
